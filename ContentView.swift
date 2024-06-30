@@ -1,21 +1,29 @@
+//
+//  ContentView.swift
+//  HandTracking
+//
+//  Created by Srujan on 2/23/24.
+//
+
 import SwiftUI
 import RealityKit
+import RealityKitContent
 
 struct ContentView: View {
-
+    
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
-
+    
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
+    
     var body: some View {
         VStack {
-            Toggle("Show Plane Detection", isOn: $showImmersiveSpace)
-                .font(.title)
-                .frame(width: 400)
-                .padding(20)
-                .glassBackgroundEffect()
+            Text("Hand Tracking")
+            
+            Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
+                .toggleStyle(.button)
+                .padding(.top, 50)
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
